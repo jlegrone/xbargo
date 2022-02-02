@@ -18,5 +18,12 @@ func main() {
 		xbargo.NewMenuItem("Greet").
 			WithShell("say", os.Getenv("GREETING"), usr.Username).
 			WithShortcut("G", xbargo.CommandKey),
+		xbargo.Separator{},
+		xbargo.NewMenuItem("Statuses").WithSubMenu(
+			xbargo.NewMenuItem("Available").WithIcon(xbargo.IconStatusAvailable),
+			xbargo.NewMenuItem("None").WithIcon(xbargo.IconStatusNone),
+			xbargo.NewMenuItem("Partially").WithIcon(xbargo.IconStatusPartially),
+			xbargo.NewMenuItem("Unavailable").WithIcon(xbargo.IconStatusUnavailable),
+		),
 	).Run()
 }

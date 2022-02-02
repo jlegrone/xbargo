@@ -3,6 +3,8 @@
 package xbargo
 
 import (
+	"bytes"
+	_ "embed"
 	"encoding/base64"
 	"fmt"
 	"io"
@@ -16,6 +18,25 @@ var (
 	_ XbarElement = &MenuItem{}
 	_ Action      = HrefAction{}
 	_ Action      = ShellAction{}
+)
+
+var (
+	//go:embed assets/Status_Available.png
+	statusAvailableBytes []byte
+	//go:embed assets/Status_None.png
+	statusNoneBytes []byte
+	//go:embed assets/Status_Partially.png
+	statusPartiallyBytes []byte
+	//go:embed assets/Status_Unavailable.png
+	statusUnavailableBytes []byte
+	// IconStatusAvailable is a small green indicator, similar to iChat’s available image.
+	IconStatusAvailable = bytes.NewReader(statusAvailableBytes)
+	// IconStatusNone is a small clear indicator.
+	IconStatusNone = bytes.NewReader(statusNoneBytes)
+	// IconStatusPartially is a small yellow indicator, similar to iChat’s idle image.
+	IconStatusPartially = bytes.NewReader(statusPartiallyBytes)
+	// IconStatusUnavailable is a small red indicator, similar to iChat’s unavailable image.
+	IconStatusUnavailable = bytes.NewReader(statusUnavailableBytes)
 )
 
 // An XbarElement may be either a MenuItem or Separator.

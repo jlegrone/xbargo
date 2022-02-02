@@ -2,7 +2,7 @@
 
 This directory contains an xbar plugin written with `xbargo` that says hello to the current user.
 
-<img src="screenshot.png" alt="tctx xbar integration" width="150"/>
+<img src="screenshot.png" alt="tctx xbar integration" width="250"/>
 
 ## Installation
 
